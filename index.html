@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blueprint Arquitectónico · Célula Híbrida PluMarket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0b0e;--card:#121318;--border:#242634;--text:#cdd0dc;--muted:#7b7f90;--title:#f1f3fb;--accent:#6c5ce7;--accent2:#00cec9;--accent3:#fd79a8;--green:#00b894;--orange:#fdcb6e;--red:#e17055;--radius:16px;--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--mono:'Fira Code',monospace}
+html{scroll-behavior:smooth}body{font-family:var(--font);background:radial-gradient(circle at top left,rgba(108,92,231,.16),transparent 34%),radial-gradient(circle at top right,rgba(0,206,201,.12),transparent 28%),var(--bg);color:var(--text);line-height:1.62;padding:40px 20px}.container{max-width:980px;margin:0 auto}.hero{padding:34px 0 24px}.hero-eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.badge{display:inline-block;padding:4px 12px;border-radius:999px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:500}.badge-purple{background:rgba(108,92,231,.15);color:var(--accent);border:1px solid rgba(108,92,231,.3)}.badge-teal{background:rgba(0,206,201,.12);color:var(--accent2);border:1px solid rgba(0,206,201,.25)}.badge-orange{background:rgba(253,203,110,.12);color:var(--orange);border:1px solid rgba(253,203,110,.25)}.badge-red{background:rgba(225,112,85,.12);color:var(--red);border:1px solid rgba(225,112,85,.25)}h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;line-height:1.05;letter-spacing:-1.4px;color:var(--title);margin-bottom:12px}h1 span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.subtitle{font-size:1.12rem;color:var(--muted);max-width:760px;line-height:1.6}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:999px;padding:6px 11px;background:rgba(255,255,255,.03);font-size:.82rem;color:#dfe2ee}.hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)}.hero-stat{display:flex;flex-direction:column;gap:2px}.hero-stat-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase}.hero-stat-value{font-weight:700;font-size:16px;color:var(--title)}.card{background:rgba(18,19,24,.94);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:18px;box-shadow:0 18px 60px rgba(0,0,0,.18)}.card:hover{border-color:#343748}.card-accent-purple{border-left:3px solid var(--accent)}.card-accent-teal{border-left:3px solid var(--accent2)}.card-accent-orange{border-left:3px solid var(--orange)}.card-accent-red{border-left:3px solid var(--red)}.card-accent-green{border-left:3px solid var(--green)}h2{font-size:1.45rem;font-weight:750;margin-bottom:14px;color:var(--title);display:flex;gap:10px;align-items:center}h3{font-size:1.05rem;color:var(--title);margin:20px 0 8px}h4{font-size:.92rem;color:var(--accent2);margin:12px 0 6px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em}p{margin-bottom:12px}strong{color:var(--title)}ul,ol{padding-left:22px;margin:10px 0 14px}li{margin-bottom:6px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.mini{background:linear-gradient(135deg,rgba(108,92,231,.075),rgba(0,206,201,.055));border:1px solid rgba(108,92,231,.2);border-radius:13px;padding:18px}.mini-title{font-weight:700;color:var(--title);margin-bottom:6px}.tag{display:inline-block;padding:3px 9px;border-radius:7px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.3px}.green{background:rgba(0,184,148,.18);color:var(--green)}.orange{background:rgba(253,203,110,.18);color:var(--orange)}.purple{background:rgba(108,92,231,.18);color:var(--accent)}.teal{background:rgba(0,206,201,.15);color:var(--accent2)}.red{background:rgba(225,112,85,.18);color:var(--red)}.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);margin:16px 0}table{width:100%;border-collapse:collapse;font-size:.86rem}thead tr{background:rgba(255,255,255,.03)}thead th{padding:12px 14px;text-align:left;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap}tbody tr{border-bottom:1px solid rgba(255,255,255,.04)}tbody tr:last-child{border-bottom:none}tbody tr:hover{background:rgba(255,255,255,.02)}tbody td{padding:12px 14px;color:var(--text);vertical-align:top;line-height:1.5}tbody td:first-child{font-weight:600;color:var(--title)}.diagram{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 24px;font-family:var(--mono);font-size:.82rem;line-height:1.7;white-space:pre;overflow-x:auto;color:var(--muted)}.diagram .highlight{color:var(--accent2)}.diagram .warn{color:var(--orange)}.diagram .stop{color:var(--red)}.diagram .done{color:var(--green)}.guardrail-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.guardrail-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:20px 22px;border-left:3px solid var(--accent2)}.guardrail-card.red{border-left-color:var(--red)}.guardrail-card.orange{border-left-color:var(--orange)}.guardrail-card.green{border-left-color:var(--green)}.guardrail-card h4{font-size:.88rem;color:var(--title);margin-bottom:8px;text-transform:none;letter-spacing:0}.guardrail-card p,.guardrail-card li{font-size:.82rem;color:var(--text)}.guardrail-card ul{list-style:none;padding:0}.guardrail-card li{padding-left:16px;position:relative}.guardrail-card li::before{content:'→';position:absolute;left:0;color:var(--accent2)}.scenario{background:rgba(253,203,110,.06);border:1px solid rgba(253,203,110,.2);border-radius:10px;padding:16px 20px;margin:10px 0}.scenario-title{font-weight:700;font-size:.88rem;color:var(--orange);margin-bottom:4px}.scenario p{font-size:.84rem;color:var(--text)}.roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.phase-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:18px;transition:border-color .15s}.phase-card:hover{border-color:var(--accent)}.phase-num{font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px}.phase-name{font-weight:700;font-size:.95rem;color:var(--title);margin-bottom:2px}.phase-time{font-family:var(--mono);font-size:.78rem;color:var(--accent2);margin-bottom:10px}.phase-tasks{list-style:none;padding:0}.phase-tasks li{font-size:.82rem;color:var(--text);padding-left:14px;position:relative;margin-bottom:5px}.phase-tasks li::before{content:'·';position:absolute;left:0;color:var(--accent)}.highlight-box{background:linear-gradient(135deg,rgba(108,92,231,.08),rgba(0,206,201,.05));border:1px solid rgba(108,92,231,.25);border-radius:12px;padding:22px 24px;margin:16px 0}.highlight-box p{font-size:.9rem;color:var(--text);margin:0}.highlight-box strong{color:var(--accent2)}.divider{height:1px;background:var(--border);margin:24px 0}.footer{border-top:1px solid var(--border);padding:20px 0;margin-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:.78rem;color:var(--muted)}.footer strong{color:var(--text)}.checklist{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0}.check-item{display:flex;align-items:flex-start;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px}.check-box{width:20px;height:20px;border-radius:5px;background:rgba(0,206,201,.12);border:1px solid rgba(0,206,201,.35);display:flex;align-items:center;justify-content:center;color:var(--accent2);font-size:11px;flex-shrink:0;margin-top:1px}.check-item span{font-size:.82rem;color:var(--text);line-height:1.45}.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:16px 0}.kpi-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:18px;position:relative;overflow:hidden}.kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}.kpi-green::before{background:var(--green)}.kpi-teal::before{background:var(--accent2)}.kpi-orange::before{background:var(--orange)}.kpi-red::before{background:var(--red)}.kpi-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}.kpi-value{font-weight:800;font-size:28px;line-height:1;margin-bottom:2px}.kpi-green .kpi-value{color:var(--green)}.kpi-teal .kpi-value{color:var(--accent2)}.kpi-orange .kpi-value{color:var(--orange)}.kpi-red .kpi-value{color:var(--red)}.kpi-sub{font-size:11px;color:var(--muted);font-family:var(--mono)}@media(max-width:780px){.grid-2,.grid-3,.guardrail-grid,.kpi-grid{grid-template-columns:1fr}.roadmap{grid-template-columns:1fr}.checklist{grid-template-columns:1fr}.hero{padding:20px 0}}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ═══════ HERO ═══════ -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <span class="badge badge-purple">Proyecto · AI Agents</span>
+      <span class="badge badge-teal">Célula Híbrida</span>
+      <span class="badge badge-orange">e‑commerce · Mercado Libre</span>
+    </div>
+    <h1><span>Blueprint Arquitectónico</span><br>Célula Híbrida para PluMarket</h1>
+    <p class="subtitle">Cómo escalar la operación de Mercado Libre sin multiplicar errores ni contratar más personas — combinando agentes digitales, supervisión humana selectiva y métricas que protegen la reputación y la conversión.</p>
+    <div class="meta">
+      <span class="pill">🐉 Agente: Spectra</span>
+      <span class="pill">📦 Dominio: e‑commerce / Mercado Libre</span>
+      <span class="pill">🧠 Stack: Claude · Codex · OpenClaw · n8n</span>
+      <span class="pill">📅 Junio 2026</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hero-stat-label">Autonomía objetivo</span><span class="hero-stat-value">75 % de tareas</span></div>
+      <div class="hero-stat"><span class="hero-stat-label">Respuesta a consultas</span><span class="hero-stat-value">&lt; 8 min vs. 2 h hoy</span></div>
+      <div class="hero-stat"><span class="hero-stat-label">Reducción error catálogo</span><span class="hero-stat-value">del 18 % al &lt; 3 %</span></div>
+      <div class="hero-stat"><span class="hero-stat-label">Tiempo KAM liberado</span><span class="hero-stat-value">~12 h/semana</span></div>
+    </div>
+  </section>
+
+  <!-- ═══════ SECCIÓN 0 · EXECUTIVE SUMMARY ═══════ -->
+  <section class="card card-accent-purple">
+    <h2>00 · Resumen Ejecutivo</h2>
+    <p><strong>PluMarket</strong> opera en Mercado Libre Argentina con un catálogo en crecimiento y un equipo que ya no alcanza para mantener la velocidad de respuesta, la consistencia de las publicaciones y la calidad del servicio al comprador.</p>
+    <p>Hoy publicar un producto, responder una consulta o actualizar una ficha técnica implica procesos manuales que consumen horas, producen errores inconsistentes y limitan la capacidad de escalar sin sumar más personas. Cada consulta sin respuesta a tiempo es una venta que <em>no</em> se concreta. Cada ficha con información desactualizada erosiona la confianza del comprador y la reputación del seller.</p>
+    <p>Este blueprint propone una <strong>célula híbrida</strong> — un agente digital (Spectra) que prepara, analiza, audita y redacta, mientras la decisión final y la ejecución sensible quedan en manos humanas. El objetivo no es reemplazar al equipo, sino <strong>multiplicar su capacidad operativa</strong>: pasar de responder en horas a hacerlo en minutos, mantener el catálogo impecable sin revisión 100 % manual, y liberar tiempo del equipo para lo que realmente importa: estrategia comercial y relación con clientes.</p>
+    <div class="grid-2" style="margin-top:16px">
+      <div class="mini"><div class="mini-title">💰 Impacto estimado a 6 meses</div><p>Reducción del 60 % en tiempo operativo dedicado a consultas y mantenimiento de catálogo. ≈ 12 h/semana liberadas por persona para tareas de mayor valor.</p></div>
+      <div class="mini"><div class="mini-title">📈 Métricas clave</div><p>Latencia de borrador &lt; 8 min, tasa de éxito autónomo ≥ 70 %, calidad de publicación ≥ 95 % en checklist, intervención humana reducida al 25 % de los casos.</p></div>
+    </div>
+  </section>
+
+  <!-- ═══════ SECCIÓN 1 · DEFINICIÓN ═══════ -->
+  <section class="card">
+    <h2>1. Definición estratégica del caso</h2>
+    <p>Antes de diseñar una solución, hay que entender qué está pasando hoy — y por qué duele.</p>
+    <p><strong>Proceso elegido:</strong> gestión operativa de publicaciones, atención de preguntas de compradores y mejora continua de catálogo para PluMarket en Mercado Libre Argentina.</p>
+    <div class="grid-2" style="margin-top:16px">
+      <div>
+        <div class="mini" style="margin-bottom:12px"><div class="mini-title">🔴 El problema real</div><p>Las tareas de catálogo, respuestas y auditoría son repetitivas, dependen del contexto y tienen impacto directo en reputación, conversión y ventas. Perder una consulta porque no se respondió a tiempo o publicar una ficha con información inconsistente no es un error técnico: <strong>es una venta que se va a la competencia.</strong></p></div>
+        <div class="mini"><div class="mini-title">🎯 Objetivo de negocio</div><p>Reducir tiempos operativos, mejorar calidad y velocidad de las publicaciones, y acelerar decisiones comerciales — sin perder control humano sobre acciones que afectan ingresos, reputación o relación con el comprador.</p></div>
+      </div>
+      <div>
+        <div class="mini" style="margin-bottom:12px"><div class="mini-title">⚖️ ¿Por qué híbrido y no automatización total?</div><p>Precios, promesas comerciales, respuestas a compradores en contexto de reclamo y decisiones sobre stock requieren criterio, empatía, conocimiento del negocio y, sobre todo, <strong>trazabilidad</strong>. Una automatización total sería imprudente y riesgosa. El diseño híbrido no es una limitación técnica: <strong>es una decisión arquitectónica</strong> que protege lo que más importa.</p></div>
+        <div class="highlight-box">
+          <p><strong>Foco del diseño:</strong> automatizar con control, no automatizar "todo". El 75 % de autonomía no es un límite inferior — es el techo que garantiza que el agente opera sin poner en riesgo la operación.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ SECCIÓN 2 · MARCO PTC ═══════ -->
+  <section class="card">
+    <h2>2. Marco Persona · Tarea · Contexto</h2>
+    <p>Definición explícita del agente digital, su alcance operativo, sus límites y los sistemas con los que interactúa.</p>
+
+    <h3>🧠 Persona: Spectra</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Dimensión</th><th>Definición aplicada</th></tr></thead>
+      <tbody>
+        <tr><td>Rol</td><td>Agente digital especialista en operaciones de e‑commerce para Mercado Libre Argentina. Perfil: directo, táctico, orientado a conversión y cumplimiento operativo.</td></tr>
+        <tr><td>Capacidades</td><td>Analiza publicaciones, redacta mejoras, genera borradores de respuestas, compara alternativas, prepara reportes, recuerda decisiones y coordina herramientas.</td></tr>
+        <tr><td>Límites</td><td>No publica respuestas, no modifica publicaciones, no cambia precios ni envía comunicaciones externas sin aprobación humana explícita.</td></tr>
+        <tr><td>Autonomía</td><td>Alta para análisis y preparación; media para ejecución interna (reportes, logging); baja o nula para acciones externas sensibles.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>📋 Tareas del Agente</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Actividad</th><th>Quién ejecuta</th><th>Nivel de autonomía</th></tr></thead>
+      <tbody>
+        <tr><td>T1</td><td>Auditar calidad de publicación (título, atributos, fotos, descripción)</td><td>Spectra → revisión humana si hay cambios</td><td><span class="tag green">Alta ~90 %</span></td></tr>
+        <tr><td>T2</td><td>Redactar borrador de mejora de título/descripción</td><td>Spectra (borrador) → Humano (aprobación)</td><td><span class="tag green">Alta ~90 %</span></td></tr>
+        <tr><td>T3</td><td>Responder consultas de compradores (borrador)</td><td>Spectra (borrador) → Humano (aprobación)</td><td><span class="tag teal">Media ~75 %</span></td></tr>
+        <tr><td>T4</td><td>Monitorear y detectar riesgos reputacionales</td><td>Spectra (100 % alertas) → Humano decide</td><td><span class="tag green">Alta ~95 %</span></td></tr>
+        <tr><td>T5</td><td>Preparar reporte semanal de métricas</td><td>Spectra (100 %)</td><td><span class="tag green">Muy alta ~98 %</span></td></tr>
+        <tr><td>T6</td><td>Ejecutar cambios en publicaciones (precio, stock, descripción)</td><td><span class="tag red">Solo humano</span></td><td><span class="tag orange">Baja ~10 %</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>🔗 Contexto: sistemas, riesgos y restricciones</h3>
+    <div class="grid-3">
+      <div class="mini"><div class="mini-title">Sistemas</div><p>Mercado Libre API, Telegram (OpenClaw), Gmail/Drive, Engram (memoria persistente), generación de imágenes, herramientas de desarrollo.</p></div>
+      <div class="mini"><div class="mini-title">Restricciones</div><p>Políticas de ML sobre moderación de contenido, datos de compradores protegidos, límites de API, actualización asincrónica de precios y stock.</p></div>
+      <div class="mini"><div class="mini-title">Riesgos</div><p>Reputación por respuestas incorrectas, cambios no autorizados en publicaciones, información desactualizada, dependencia de disponibilidad de API.</p></div>
+    </div>
+  </section>
+
+  <!-- ═══════ SECCIÓN 3 · WORKFLOW ═══════ -->
+  <section class="card">
+    <h2>3. Diseño del Agentic Workflow</h2>
+    <p>El flujo separa análisis, decisión y acción. La intervención humana aparece donde hay riesgo comercial o reputacional.</p>
+
+    <div class="diagram">                     ╔══════════════════════╗
+                     ║  Evento entrante      ║
+                     ║  (consulta / alerta /  ║
+                     ║   solicitud de mejora) ║
+                     ╚══════════╤═══════════╝
+                                │
+                     ┌──────────▼──────────┐
+                     │  Spectra clasifica    │
+                     │  tipo e intención   │
+                     └──────────┬──────────┘
+                                │
+              ┌─────────────────┼──────────────────┐
+              ▼                  ▼                   ▼
+   ┌──────────────────┐ ┌──────────────┐ ┌──────────────────┐
+   │ Consulta simple  │ │Mejora de     │ │ Riesgo /         │
+   │ del comprador    │ │publicación   │ │ ambigüedad       │
+   └────────┬─────────┘ └──────┬───────┘ └────────┬─────────┘
+            │                  │                   │
+            ▼                  ▼                   ▼
+   ┌──────────────────┐ ┌──────────────┐ ┌──────────────────┐
+   │  Spectra redacta   │ │  Spectra       │ │  ⛔ Escalar a    │
+   │  <span class="warn">borrador</span>      │ │  <span class="highlight">audita</span> título,  │ │  <span class="stop">humano +</span>      │
+   │  + verifica      │ │  fotos,      │ │  <span class="stop">detener</span>        │
+   │  consistencia    │ │  atributos   │ │  procesamiento   │
+   └────────┬─────────┘ └──────┬───────┘ └──────────────────┘
+            │                  │
+            ▼                  ▼
+   ┌──────────────────┐ ┌──────────────┐
+   │  <span class="warn">[Aprobación     │ │  Propuesta    │
+   │   humana]</span>       │ │  con impacto  │
+   │   ¿Publicar?     │ │  esperado     │
+   └────────┬─────────┘ └──────┬───────┘
+            │                  │
+            ▼                  ▼
+    ┌──────────────────┐ ┌──────────────────┐
+    │  <span class="done">✅ Enviar /     │ │  <span class="warn">[Decisión        │
+    │  aplicar</span>       │ │  Gerencial]      │
+    └──────────────────┘ └────────┬─────────┘
+                               │
+                               ▼
+                      ┌──────────────────┐
+                      │  <span class="done">✅ Ejecución  │
+                      │  controlada</span>    │
+                      └──────────────────┘
+
+Después de cada acción:
+<span class="highlight">[Verificación]</span> → <span class="highlight">[Logging]</span> → <span class="highlight">[Memoria]</span> → <span class="highlight">[KPIs]</span></div>
+
+    <h3>Condiciones de corte</h3>
+    <div class="grid-2" style="margin-top:8px">
+      <div class="mini"><span class="tag red">Bloqueante</span><div class="mini-title">Datos críticos no verificables</div><p>Si el agente no puede confirmar un dato clave (precio, disponibilidad, atributo), no avanza: escala.</p></div>
+      <div class="mini"><span class="tag orange">Escalamiento</span><div class="mini-title">Conflicto de instrucciones</div><p>Si la solicitud del usuario contradice la política del canal o las reglas de negocio, se detiene y notifica.</p></div>
+      <div class="mini"><span class="tag orange">Tolerancia técnica</span><div class="mini-title">3 fallos consecutivos</div><p>Si una operación falla 3 veces seguidas (API, conexión, timeout), escala a humano con contexto completo.</p></div>
+      <div class="mini"><span class="tag red">Bloqueante</span><div class="mini-title">Impacto externo sin aprobación</div><p>Ninguna acción que modifique una publicación, responda a un comprador o cambie un precio se ejecuta sin aprobación explícita.</p></div>
+    </div>
+
+    <h3>Estados del workflow</h3>
+    <p style="font-size:.85rem; color:var(--muted)">RECEIVED → CLASSIFYING → PARSING → DRAFTING → REVIEW → APPROVED ↔ REJECTED → APPLIED / ESCALATED → LOGGED</p>
+  </section>
+
+  <!-- ═══════ SECCIÓN 4 · STACK ═══════ -->
+  <section class="card">
+    <h2>4. Selección y justificación tecnológica</h2>
+    <p>Cada herramienta fue elegida por su ajuste a la tarea, no por familiaridad. Esta tabla muestra las alternativas evaluadas y por qué se descartaron.</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Función</th><th>Herramienta</th><th>Alternativas evaluadas</th><th>Justificación</th><th>Riesgo</th></tr></thead>
+      <tbody>
+        <tr><td>Interfaz operativa y conectores</td><td><strong>OpenClaw</strong></td><td>n8n, Telegram Bot API puro</td><td>Permite operar desde Telegram con acceso directo a herramientas, ejecución de tareas, envío de archivos y coordinación del agente sin depender de una UI web. Más liviano que n8n para el día a día operativo.</td><td><span class="tag green">Bajo</span></td></tr>
+        <tr><td>Construcción y edición técnica</td><td><strong>Codex (OpenAI)</strong></td><td>Claude Code, Copilot</td><td>Ideal para modificar HTML, scripts, flujos y documentación con control granular de archivos. Claude Code se usa para razonamiento estratégico; Codex para ejecución táctica.</td><td><span class="tag green">Bajo</span></td></tr>
+        <tr><td>Razonamiento estratégico y revisión</td><td><strong>Claude (Anthropic)</strong></td><td>GPT-4o, Gemini 1.5</td><td>Superior en seguimiento de instrucciones complejas y reducción de alucinaciones. Se usa para análisis de calidad de publicaciones, revisión de tono y evaluación crítica de respuestas antes de presentarlas al humano.</td><td><span class="tag orange">Medio</span></td></tr>
+        <tr><td>Memoria persistente</td><td><strong>Engram</strong></td><td>Archivos JSON locales, vector DB</td><td>Registra decisiones, aprendizajes y contexto histórico entre sesiones. No depende de memoria efímera del modelo. Más rápido que una vector DB para el volumen de datos de PluMarket.</td><td><span class="tag green">Bajo</span></td></tr>
+        <tr><td>Orquestación de workflows</td><td><strong>n8n</strong></td><td>Zapier, Make, scripts Python</td><td>Permite construir integraciones con lógica condicional, manejo de errores nativo y logging, todo desde un mismo lugar. Más flexible que Zapier/Make para APIs de Mercado Libre.</td><td><span class="tag orange">Medio</span></td></tr>
+        <tr><td>Notificaciones y escalamiento</td><td><strong>Telegram / Slack</strong></td><td>Email, SMS, Discord</td><td>El equipo ya opera desde Telegram. La integración es directa vía OpenClaw y permite mantener el contexto de la conversación en un solo lugar.</td><td><span class="tag green">Bajo</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- ═══════ SECCIÓN 5 · GUARDRAILS ═══════ -->
+  <section class="card">
+    <h2>5. Guardrails y control de riesgo</h2>
+    <p>Mecanismos técnicos y de proceso para que el agente opere de forma confiable, incluso cuando algo sale mal.</p>
+
+    <div class="guardrail-grid">
+      <div class="guardrail-card">
+        <h4>🔒 Aprobación obligatoria</h4>
+        <p>Todo mensaje a compradores, modificación de publicación o cambio de precio requiere aprobación humana explícita. No hay excepciones configurables por el agente.</p>
+        <ul><li>El agente prepara, el humano autoriza</li><li>Registro de cada aprobación/rechazo con timestamp</li></ul>
+      </div>
+      <div class="guardrail-card red">
+        <h4>📊 Validación de datos</h4>
+        <p>Precios, fechas, stock y políticas deben verificarse contra la fuente autorizada antes de ser usados en decisiones o respuestas. No se aceptan datos en caché.</p>
+        <ul><li>Consulta a API de ML en cada operación</li><li>Si la API no responde → escalar, no usar datos locales</li></ul>
+      </div>
+      <div class="guardrail-card orange">
+        <h4>📝 Registro de decisiones (auditoría)</h4>
+        <p>Cada cambio relevante se guarda con: qué cambió, por qué, qué resultado se espera y quién lo aprobó. Trazabilidad completa para revisión posterior.</p>
+        <ul><li>Log estructurado en Engram + respaldo local</li><li>Retención mínima: 6 meses</li></ul>
+      </div>
+      <div class="guardrail-card green">
+        <h4>🚨 Escalamiento de casos sensibles</h4>
+        <p>Reclamos, devoluciones, amenazas de reputación, fraude o ambigüedad comercial se elevan automáticamente a la gerencia. El agente no responde ni sugiere.</p>
+        <ul><li>Notificación inmediata con contexto completo</li><li>El workflow queda en estado "ESCALATED" hasta resolución</li></ul>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <h3>Escenarios de fallo</h3>
+    <div class="scenario"><div class="scenario-title">⚠ API de Mercado Libre no disponible</div><p><strong>Acción:</strong> 3 reintentos con backoff (5s / 15s / 30s). Si persiste: detener ejecución, informar estado al operador humano con el contexto de lo que se estaba procesando, y preparar resumen para acción manual.</p></div>
+    <div class="scenario"><div class="scenario-title">⚠ Dato contradictorio entre fuentes</div><p><strong>Acción:</strong> No responder ni ejecutar cambios. Escalar al humano con las dos versiones del dato y la fuente de cada una. El agente no toma partido.</p></div>
+    <div class="scenario"><div class="scenario-title">⚠ Borrador de baja calidad detectado</div><p><strong>Acción:</strong> El agente mismo evalúa su borrador contra un checklist de calidad antes de presentarlo. Si no cumple ≥ 80 %: reformular, comparar contra la versión anterior y volver a presentar. Si falla dos veces: escalar.</p></div>
+    <div class="scenario"><div class="scenario-title">⚠ Intento de acción no autorizada</div><p><strong>Acción:</strong> Bloqueo en código (no configurable por el agente). Log del intento con timestamp, contexto y razón del bloqueo. Notificación al equipo de operaciones si se detecta un patrón recurrente.</p></div>
+  </section>
+
+  <!-- ═══════ SECCIÓN 6 · KPIs ═══════ -->
+  <section class="card">
+    <h2>6. KPIs operativos y métricas</h2>
+    <p>Indicadores diseñados para medir si la célula híbrida está cumpliendo su promesa: más velocidad, mejor calidad, menos carga operativa.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi-card kpi-green"><div class="kpi-label">Latencia respuesta</div><div class="kpi-value">&lt; 8 min</div><div class="kpi-sub">Hoy: 30 min a 4 h</div></div>
+      <div class="kpi-card kpi-teal"><div class="kpi-label">Tasa éxito autónomo</div><div class="kpi-value">≥ 70 %</div><div class="kpi-sub">Sin intervención humana</div></div>
+      <div class="kpi-card kpi-orange"><div class="kpi-label">Calidad publicación</div><div class="kpi-value">≥ 95 %</div><div class="kpi-sub">Checklist cumplido</div></div>
+      <div class="kpi-card kpi-red"><div class="kpi-label">Intervención humana</div><div class="kpi-value">&lt; 30 %</div><div class="kpi-sub">Hoy: 100 % manual</div></div>
+    </div>
+
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>KPI</th><th>Baseline</th><th>Objetivo mes 3</th><th>Objetivo mes 6</th><th>Alerta</th><th>Acción correctiva</th></tr></thead>
+      <tbody>
+        <tr><td>Latencia de borrador</td><td>30 min – 4 h</td><td>&lt; 15 min</td><td>&lt; 8 min</td><td>&gt; 30 min</td><td>Revisar disponibilidad de API y cuellos de aprobación</td></tr>
+        <tr><td>Tasa de éxito autónomo</td><td>0 %</td><td>50 %</td><td>≥ 70 %</td><td>&lt; 50 %</td><td>Auditar prompts, skills y reglas de clasificación</td></tr>
+        <tr><td>Costo por tarea (tiempo operativo)</td><td>100 % manual</td><td>-40 %</td><td>-60 %</td><td>&lt; -30 %</td><td>Priorizar tareas de mayor repetición, simplificar flujo</td></tr>
+        <tr><td>Intervención humana</td><td>100 %</td><td>50 %</td><td>&lt; 30 %</td><td>&gt; 45 %</td><td>Analizar causas de escalamiento, refinar reglas</td></tr>
+        <tr><td>Calidad de publicación</td><td>Irregular</td><td>≥ 85 %</td><td>≥ 95 %</td><td>&lt; 80 %</td><td>Bloquear cambios hasta corregir atributos o fotos</td></tr>
+        <tr><td>Tiempo KAM liberado</td><td>0 h/sem</td><td>6 h/sem</td><td>12 h/sem</td><td>&lt; 5 h/sem</td><td>Revisar escalamientos innecesarios, ajustar confianza</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- ═══════ SECCIÓN 7 · ROADMAP ═══════ -->
+  <section class="card">
+    <h2>7. Roadmap de implementación</h2>
+    <p>Seis fases con entregables, responsables y horizonte temporal. Cada fase termina con un criterio de salida antes de avanzar.</p>
+
+    <div class="roadmap">
+      <div class="phase-card"><div class="phase-num">Fase 1</div><div class="phase-name">Diagnóstico</div><div class="phase-time">Días 1–7</div><ul class="phase-tasks"><li>Mapa de tareas operativas actuales</li><li>Baseline de tiempos por tarea</li><li>Identificación de publicaciones prioritarias</li><li>Entrevista con el equipo sobre casos edge</li></ul></div>
+      <div class="phase-card"><div class="phase-num">Fase 2</div><div class="phase-name">Diseño</div><div class="phase-time">Días 8–14</div><ul class="phase-tasks"><li>Workflow detallado del agente</li><li>Definición de guardrails y reglas</li><li>Checklist de publicación</li><li>KPIs y umbrales de alerta</li></ul></div>
+      <div class="phase-card"><div class="phase-num">Fase 3</div><div class="phase-name">Desarrollo</div><div class="phase-time">Días 15–28</div><ul class="phase-tasks"><li>Skills, prompts y plantillas</li><li>Integración con API de Mercado Libre</li><li>Memoria persistente (Engram)</li><li>HTML y documentación técnica</li></ul></div>
+      <div class="phase-card"><div class="phase-num">Fase 4</div><div class="phase-name">Piloto</div><div class="phase-time">Días 29–42</div><ul class="phase-tasks"><li>5–10 publicaciones reales</li><li>Consultas de compradores supervisadas</li><li>Ajuste de prompts según errores</li><li>Feedback diario con el equipo</li></ul></div>
+      <div class="phase-card"><div class="phase-num">Fase 5</div><div class="phase-name">Despliegue</div><div class="phase-time">Días 43–60</div><ul class="phase-tasks"><li>Monitoreo activo de métricas</li><li>Reportes semanales automáticos</li><li>Permisos graduales por tipo de tarea</li><li>Comunicación a clientes sobre mejora</li></ul></div>
+      <div class="phase-card"><div class="phase-num">Fase 6</div><div class="phase-name">Optimización</div><div class="phase-time">Mes 3 en adelante</div><ul class="phase-tasks"><li>Ajuste de KPIs con datos reales</li><li>Nuevos casos de uso identificados</li><li>Automatización parcial de aprobaciones</li><li>Reporte de ROI al equipo</li></ul></div>
+    </div>
+
+    <div class="highlight-box">
+      <p><strong>Criterio de salida de cada fase:</strong> antes de pasar a la siguiente, se valida que los entregables de la fase actual están completos, medidos y aprobados por la gerencia. Sin esto, no se avanza.</p>
+    </div>
+  </section>
+
+  <!-- ═══════ SECCIÓN 8 · CIERRE ═══════ -->
+  <section class="card card-accent-teal">
+    <h2>8. Evaluación y próximos pasos</h2>
+    <p>Este blueprint es el punto de partida, no el destino. La célula híbrida no se instala: se construye en conjunto con el equipo, se ajusta con la operación real y se mide contra los KPIs desde el día 1.</p>
+
+    <div class="checklist">
+      <div class="check-item"><div class="check-box">✓</div><span><strong>Caso de negocio real</strong> definido y justificado con datos del problema actual</span></div>
+      <div class="check-item"><div class="check-box">✓</div><span><strong>Marco Persona–Tarea–Contexto</strong> explícito con límites de autonomía por escenario</span></div>
+      <div class="check-item"><div class="check-box">✓</div><span><strong>Workflow con estados, decisiones, cortes</strong> e intervención humana documentados</span></div>
+      <div class="check-item"><div class="check-box">✓</div><span><strong>Stack tecnológico justificado</strong> comparativamente, con alternativas evaluadas</span></div>
+      <div class="check-item"><div class="check-box">✓</div><span><strong>Guardrails técnicos y de proceso</strong> con escenarios de fallo y respuestas específicas</span></div>
+      <div class="check-item"><div class="check-box">✓</div><span><strong>KPIs con baseline, objetivo, alerta</strong> y acción correctiva para cada indicador</span></div>
+      <div class="check-item"><div class="check-box">✓</div><span><strong>Roadmap por fases con horizonte</strong> temporal, entregables y criterio de salida</span></div>
+      <div class="check-item"><div class="check-box">✓</div><span><strong>Enfoque híbrido justificado</strong> vs. automatización total, con riesgos identificados</span></div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:20px">
+      <p><strong>Lo que viene ahora:</strong> el diagnóstico (Fase 1). Mapear qué se hace hoy, cuánto tiempo lleva, y dónde se está perdiendo plata. Con esa línea de base, el diseño deja de ser teoría y empieza a ser un plan con fechas, responsables y métricas.</p>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <div class="footer">
+    <p><strong>PluMarket</strong> · Spectra 🐉 · Blueprint Arquitectónico de Célula Híbrida</p>
+    <p>Documento generado para evaluación · Datos ficticios con base en operación real · Junio 2026</p>
+  </div>
+
+</div>
+</body>
+</html>
