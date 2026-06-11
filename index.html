@@ -123,14 +123,14 @@ html{scroll-behavior:smooth}body{font-family:var(--font);background:radial-gradi
     <h4>📋 Tareas del Agente</h4>
     <div class="table-wrap">
     <table>
-      <thead><tr><th>#</th><th>Tarea</th><th>Descripción</th><th>Nivel de autonomía</th><th>Supervisión requerida</th></tr></thead>
+      <thead><tr><th>#</th><th>Tarea</th><th>Descripción</th><th>Complejidad</th><th>Autonomía</th><th>Supervisión requerida</th></tr></thead>
       <tbody>
-        <tr><td>T1</td><td>Auditar calidad de publicación</td><td>Evalúa título, atributos, fotos, descripción y pricing contra checklist de calidad. Genera reporte con puntaje y recomendaciones.</td><td><span class="tag tag-green">95 %</span></td><td>Humano revisa reporte y decide cambios</td></tr>
-        <tr><td>T2</td><td>Redactar mejora de título/descripción</td><td>Propone redacción optimizada con palabras clave, tono de marca y criterios de conversión.</td><td><span class="tag tag-green">90 %</span></td><td>Humano aprueba antes de aplicar</td></tr>
-        <tr><td>T3</td><td>Responder consulta de comprador</td><td>Clasifica la consulta, genera borrador con respuesta precisa y tono adecuado al contexto.</td><td><span class="tag tag-teal">75 %</span></td><td>Humano revisa tono y autoriza envío</td></tr>
-        <tr><td>T4</td><td>Monitorear riesgos reputacionales</td><td>Detecta patrones anómalos (consultas repetitivas, reclamos, reseñas negativas, baja de stock repentina). Genera alerta temprana.</td><td><span class="tag tag-green">95 %</span></td><td>Solo escalamiento; alerta automática</td></tr>
-        <tr><td>T5</td><td>Preparar reporte semanal</td><td>Compila métricas de la semana: consultas respondidas, mejoras aplicadas, calidad promedio, alertas generadas.</td><td><span class="tag tag-green">98 %</span></td><td>Ninguna; se envía automáticamente</td></tr>
-        <tr><td>T6</td><td>Ejecutar cambios en publicación</td><td>Modificar precio, stock, descripción o imágenes en ML.</td><td><span class="tag tag-red">10 %</span></td><td>Solo humano ejecuta</td></tr>
+        <tr><td>T1</td><td>Auditar calidad de publicación</td><td>Evalúa título, atributos, fotos, descripción y pricing contra checklist de calidad. Genera reporte con puntaje y recomendaciones.</td><td><span class="tag tag-green">Baja</span></td><td><span class="tag tag-green">95 %</span></td><td>Humano revisa reporte y decide cambios</td></tr>
+        <tr><td>T2</td><td>Redactar mejora de título/descripción</td><td>Propone redacción optimizada con palabras clave, tono de marca y criterios de conversión.</td><td><span class="tag tag-teal">Media</span></td><td><span class="tag tag-green">90 %</span></td><td>Humano aprueba antes de aplicar</td></tr>
+        <tr><td>T3</td><td>Responder consulta de comprador</td><td>Clasifica la consulta, genera borrador con respuesta precisa y tono adecuado al contexto.</td><td><span class="tag tag-teal">Media</span></td><td><span class="tag tag-teal">75 %</span></td><td>Humano revisa tono y autoriza envío</td></tr>
+        <tr><td>T4</td><td>Monitorear riesgos reputacionales</td><td>Detecta patrones anómalos (consultas repetitivas, reclamos, reseñas negativas, baja de stock repentina). Genera alerta temprana.</td><td><span class="tag tag-green">Baja</span></td><td><span class="tag tag-green">95 %</span></td><td>Solo escalamiento; alerta automática</td></tr>
+        <tr><td>T5</td><td>Preparar reporte semanal</td><td>Compila métricas de la semana: consultas respondidas, mejoras aplicadas, calidad promedio, alertas generadas.</td><td><span class="tag tag-green">Baja</span></td><td><span class="tag tag-green">98 %</span></td><td>Ninguna; se envía automáticamente</td></tr>
+        <tr><td>T6</td><td>Ejecutar cambios en publicación</td><td>Modificar precio, stock, descripción o imágenes en ML.</td><td><span class="tag tag-orange">Alta</span></td><td><span class="tag tag-red">10 %</span></td><td>Solo humano ejecuta</td></tr>
       </tbody>
     </table>
     </div>
@@ -155,6 +155,7 @@ html{scroll-behavior:smooth}body{font-family:var(--font);background:radial-gradi
         <p><strong>Uso concreto:</strong> Spectra utiliza Claude Code para analizar la calidad de las publicaciones (evaluar títulos, descripciones y atributos contra mejores prácticas de ML), generar borradores de mejora con justificación, revisar el tono de respuestas a compradores, y detectar patrones de riesgo en consultas o reseñas.</p>
         <p><strong>Por qué sobre alternativas:</strong> Claude Code ofrece la mejor relación entre seguimiento de instrucciones complejas, manejo de reglas de negocio multi-condición y reducción de alucinaciones en análisis cualitativos. En tareas de revisión de texto (títulos, descripciones, respuestas), su capacidad de evaluar tono y consistencia supera a Codex, que está más orientado a generación de código. <em>Alternativas evaluadas: GPT-4o, Gemini 1.5 Pro.</em></p>
         <p><span class="tag tag-green">Riesgo bajo</span> — la revisión humana sobre los borradores actúa como capa de validación final.</p>
+        <p><span class="tag tag-purple">Autonomía que aporta: Alta</span> — Spectra puede analizar, evaluar y recomendar sin intervención humana gracias al razonamiento de Claude Code. La autonomía está en el <strong>qué</strong> (análisis, diagnóstico, recomendación), no en el <strong>quién ejecuta</strong>.</p>
       </div>
 
       <div class="card" style="border:1px solid rgba(0,206,201,.4);background:linear-gradient(135deg,rgba(0,206,201,.08),transparent)">
@@ -164,6 +165,7 @@ html{scroll-behavior:smooth}body{font-family:var(--font);background:radial-gradi
         <p><strong>Uso concreto:</strong> Codex se encarga de la generación y modificación de HTML, scripts de automatización, plantillas de respuesta, documentación técnica y flujos de trabajo. También ejecuta validaciones sintácticas y estructurales sobre los artefactos que genera Spectra.</p>
         <p><strong>Por qué sobre alternativas:</strong> Codex destaca en generación de código con control granular de archivos y capacidad de edición contextual. Mientras Claude Code se usa para el razonamiento estratégico (qué mejorar y por qué), Codex ejecuta la transformación táctica (cómo implementarlo). La separación de roles evita que un solo modelo haga tanto la evaluación como la ejecución, reduciendo el riesgo de sesgo de confirmación. <em>Alternativas evaluadas: GitHub Copilot, Claude Code (para tareas puramente técnicas).</em></p>
         <p><span class="tag tag-orange">Riesgo medio</span> — el código generado debe revisarse antes de aplicarlo a producción.</p>
+        <p><span class="tag tag-purple">Autonomía que aporta: Media</span> — Codex genera y modifica artefactos de forma autónoma, pero los cambios requieren revisión humana antes de aplicarlos a producción. La autonomía está en la <strong>ejecución técnica</strong>, no en la <strong>decisión de publicar</strong>.</p>
       </div>
 
       <div class="card" style="border:1px solid rgba(253,203,110,.4);background:linear-gradient(135deg,rgba(253,203,110,.08),transparent)">
@@ -173,6 +175,7 @@ html{scroll-behavior:smooth}body{font-family:var(--font);background:radial-gradi
         <p><strong>Uso concreto:</strong> OpenClaw es el punto de entrada de la célula híbrida. Opera desde Telegram como interfaz del equipo, conecta con Mercado Libre API para consultar y modificar publicaciones, maneja archivos adjuntos, coordina la ejecución de tareas del agente y envía notificaciones. Es el "sistema nervioso" que conecta a Spectra con las herramientas y plataformas que necesita.</p>
         <p><strong>Por qué sobre alternativas:</strong> OpenClaw permite operar desde Telegram sin depender de una UI web, lo que.reduce la fricción de adopción del equipo. Su capacidad de ejecutar tareas, acceder a herramientas y coordinar agentes en un mismo entorno lo hace más ágil que n8n para el día a día operativo (n8n se usa como complemento para orquestación de integraciones más pesadas). <em>Alternativas evaluadas: n8n, Telegram Bot API puro.</em></p>
         <p><span class="tag tag-green">Riesgo bajo</span> — las acciones externas sensibles están bloqueadas por guardrails, no por limitación de la herramienta.</p>
+        <p><span class="tag tag-purple">Autonomía que aporta: Alta</span> — OpenClaw conecta, orquesta y ejecuta tareas operativas sin intervención humana. La autonomía está en la <strong>conectividad y ejecución</strong>; las acciones con impacto externo están controladas por guardrails externos a la herramienta.</p>
       </div>
 
       <div class="card" style="border:1px solid var(--border)">
@@ -252,13 +255,20 @@ html{scroll-behavior:smooth}body{font-family:var(--font);background:radial-gradi
 Después de cada acción:
 <span class="hl">[Verificación]</span> → <span class="hl">[Logging]</span> → <span class="hl">[Memoria]</span> → <span class="hl">[KPIs]</span></div>
 
-    <div class="grid-2" style="margin-top:12px">
+    <div class="grid-3" style="margin-top:12px">
       <div class="mini"><div class="mini-title">🎯 Puntos de decisión del agente</div>
       <ul>
         <li><strong>Clasificación de intención</strong> (Claude Code): ¿consulta, mejora, riesgo?</li>
         <li><strong>Evaluación de calidad</strong> (Claude Code): ¿la publicación cumple el checklist?</li>
         <li><strong>Detección de anomalías</strong> (Claude Code + reglas): ¿hay patrón de riesgo?</li>
         <li><strong>Selección de respuesta</strong> (Spectra): ¿respuesta directa, borrador o escalamiento?</li>
+      </ul></div>
+      <div class="mini"><div class="mini-title">🔄 Puntos de iteración y replanificación</div>
+      <ul>
+        <li><strong>Borrador no supera calidad ≥ 80 %</strong> → Spectra reformula y vuelve a presentar (máx. 2 intentos)</li>
+        <li><strong>API no responde</strong> → 3 reintentos con backoff exponencial; si persiste, escala a humano</li>
+        <li><strong>Consulta ambigua del comprador</strong> → el agente genera pregunta de clarificación antes de escalar</li>
+        <li><strong>Producto sin stock exacto</strong> → Spectra busca alternativa disponible o sugiere reemplazo</li>
       </ul></div>
       <div class="mini"><div class="mini-title">🔁 Puntos de supervisión humana</div>
       <ul>
@@ -357,6 +367,24 @@ Después de cada acción:
 
     <div class="highlight-box">
       <p><strong>Criterio de salida:</strong> cada fase se considera completa solo cuando sus entregables están documentados, medidos y aprobados por la gerencia. Sin esto, no se avanza a la siguiente fase.</p>
+    </div>
+
+    <h4>Riesgos de adopción y gestión del cambio</h4>
+    <div class="grid-2" style="margin-bottom:16px">
+      <div class="mini"><div class="mini-title">⚠ Riesgos identificados</div>
+      <ul>
+        <li><strong>Resistencia del equipo</strong> — los operadores pueden percibir al agente como una amenaza. <em>Mitigación:</em> comunicar a Spectra como un asistente que libera tiempo, no como un reemplazo. Mostrar datos de tiempo liberado desde la semana 1 del piloto.</li>
+        <li><strong>Confianza en la exactitud</strong> — los primeros errores pueden generar desconfianza generalizada. <em>Mitigación:</em> piloto con supervisión 100 % humana en fase inicial; cada error documentado con causa raíz y corrección.</li>
+        <li><strong>Curva de aprendizaje</strong> — el equipo debe aprender a revisar borradores y responder escalamientos. <em>Mitigación:</em> interfaz simple vía Telegram con toda la información necesaria en cada notificación.</li>
+      </ul></div>
+      <div class="mini"><div class="mini-title">📋 Estrategia de gestión del cambio</div>
+      <ul>
+        <li><strong>Champions internos:</strong> involucrar a los miembros más influyentes del equipo en el diseño del piloto</li>
+        <li><strong>Identidad propia:</strong> el nombre "Spectra" refuerza que es una herramienta del equipo, no un reemplazo</li>
+        <li><strong>Capacitación práctica:</strong> jornada de "cómo trabajar con Spectra" antes del piloto</li>
+        <li><strong>Canal de feedback:</strong> espacio dedicado para que el equipo reporte problemas y sugerencias</li>
+        <li><strong>Resultados visibles:</strong> dashboard compartido con métricas de tiempo liberado desde la primera semana</li>
+      </ul></div>
     </div>
 
     <div class="divider"></div>
