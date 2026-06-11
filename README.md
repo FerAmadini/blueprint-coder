@@ -1,12 +1,7 @@
-# Blueprint Coder — Célula Híbrida
+# Blueprint Coder — Célula Híbrida PluMarket
 
-Blueprints arquitectónicos de células híbridas (agente digital + supervisión humana) para operaciones de e-commerce y automatización de procesos.
-
-## Proyectos
-
-- **PluMarket** — Célula híbrida para operación en Mercado Libre Argentina
-- **QuimiFarma** — Célula híbrida de cotización farmacéutica B2B
+Blueprint arquitectónico de una célula híbrida (agente digital + supervisión humana) para la operación de PluMarket en Mercado Libre Argentina.
 
 ## Autor
 
-Ignacio Egan — AI Agents Course · Junio 2026
+Ignacio Egan — Proyecto Final · AI Agents Course · Junio 2026
